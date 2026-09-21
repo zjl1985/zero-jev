@@ -1,8 +1,6 @@
 # Jev 使用研究与落地方案
 
-研究日期：2026-09-21。范围：TypeSafe 官方文章、API/SDK 文档、官方 cookbook、jevai.org 社区页面、社区上下文裁剪项目，以及 `/Users/zero/code/zero-mcp` 仓库的 `servers/node/typesafe`。
-
-文档已迁入独立研究项目 `zero-jev`。下文涉及当前 MCP、入口源码、根 workspace 和拟议目录改造时，均指上述 `zero-mcp` 仓库；这些改造尚未实施。
+研究日期：2026-09-21。范围：TypeSafe 官方文章、API/SDK 文档、官方 cookbook、jevai.org 社区页面、社区上下文裁剪项目，以及一个现有 Jev MCP 实现的案例审查。
 
 本文区分官方能力、社区自述和本项目建议。已完成资料核对与静态代码审查；没有调用付费推理 API，没有实测本地准确率、延迟或费用，也没有修改现有服务实现。
 
@@ -86,7 +84,7 @@ Choice 要提供区分候选所需的名称和描述；如果答案空间不完�
 
 ## 4. 当前 MCP 的具体问题
 
-审查文件：`servers/node/typesafe/src/index.ts`，共 214 行。
+案例来源：`zero-mcp` 项目的 `servers/node/typesafe/src/index.ts`，截至研究日共 214 行。本节及后续目录改造建议针对该案例。
 
 已经做对的部分：官方 endpoint、Bearer 认证、三个原语请求形状，以及 `typesafe_judge` 允许同一 state 混合多问。请求失败也会返回 MCP `isError`。
 
